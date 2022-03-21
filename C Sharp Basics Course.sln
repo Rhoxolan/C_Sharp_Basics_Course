@@ -13,7 +13,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DZ_25.02.2022", "DZ_25.02.2
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LB_16.03.2022", "LB_16.03.2022\LB_16.03.2022.csproj", "{FA05D572-B2AB-423B-A84C-F067349038D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DZ_16.03.2022", "DZ_16.03.2022\DZ_16.03.2022.csproj", "{695C6FF3-66FD-4D7F-B97B-6915EAC5DFC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DZ_16.03.2022", "DZ_16.03.2022\DZ_16.03.2022.csproj", "{695C6FF3-66FD-4D7F-B97B-6915EAC5DFC2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0A61BC6D-28C6-4E08-8F89-8FC875D59620}"
+	ProjectSection(SolutionItems) = preProject
+		Примечание.txt = Примечание.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
