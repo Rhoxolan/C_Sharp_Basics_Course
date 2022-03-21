@@ -136,11 +136,27 @@ class Program
 
     static void Task5()
     {
+        Worker worker = new Worker("ПБА", "17.06.1998", "+38099XXXXXXX", "ASP dev");
+        Console.WriteLine("Имя: " + worker.GetFullName());
+        Console.WriteLine("Дата рождения: " + worker.GetDateOfBirth());
+        Console.WriteLine("Номер телефона: " + worker.GetPhoneNumber());
+        Console.WriteLine("Должность: " + worker.GetPosition());
+        Console.WriteLine("Обязанности: " + worker.GetDuty());
+        Console.WriteLine("\n\n*******Редактируем поле*******\n\n");
+        worker.SetDuty("Разработка программного обеспечения");
+        Console.WriteLine("Имя: " + worker.GetFullName());
+        Console.WriteLine("Дата рождения: " + worker.GetDateOfBirth());
+        Console.WriteLine("Номер телефона: " + worker.GetPhoneNumber());
+        Console.WriteLine("Должность: " + worker.GetPosition());
+        Console.WriteLine("Обязанности: " + worker.GetDuty());
         AnyKey();
     }
 
     static void Task6()
     {
+        Airliner A12 = new Airliner("A-12", "Высотный стратегический разведчик");
+        A12.Set("Lockheed A-12");
+        A12.Show();
         AnyKey();
     }
 
@@ -228,3 +244,115 @@ class Town
         return districts;
     }
 }
+
+class Worker
+{
+    string fullName;
+    string dateOfBirth;
+    string phoneNumber;
+    string position;
+    string duty;
+
+    public Worker() : this("Нет данных", "Нет данных", "Нет данных", "Нет данных", "Нет данных") { }
+
+    public Worker(string fullName) : this(fullName, "Нет данных", "Нет данных", "Нет данных", "Нет данных") { }
+
+    public Worker(string fullName, string dateOfBirth) : this(fullName, dateOfBirth, "Нет данных", "Нет данных",
+        "Нет данных") { }
+
+    public Worker(string fullName, string dateOfBirth, string phoneNumber) : this(fullName, dateOfBirth, phoneNumber,
+        "Нет данных", "Нет данных") { }
+
+    public Worker(string fullName, string dateOfBirth, string phoneNumber, string position) : this(fullName, dateOfBirth,
+        phoneNumber, position, "Нет данных") { }
+
+    public Worker(string fullName, string dateOfBirth, string phoneNumber, string position, string duty)
+    {
+        this.fullName = fullName;
+        this.dateOfBirth = dateOfBirth;
+        this.phoneNumber = phoneNumber;
+        this.position = position;
+        this.duty = duty;
+    }
+
+    public void SetFullName(string fullName)
+    {
+        this.fullName = fullName;
+    }
+
+    public void SetDateOfBirth(string dateOfBirth)
+    {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public void SetPhoneNumber(string phoneNumber)
+    {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void SetPosition(string position)
+    {
+        this.position = position;
+    }
+
+    public void SetDuty(string duty)
+    {
+        this.duty = duty;
+    }
+
+    public string GetFullName()
+    {
+        return fullName;
+    }
+
+    public string GetDateOfBirth()
+    {
+        return dateOfBirth;
+    }
+
+    public string GetPhoneNumber()
+    {
+        return phoneNumber;
+    }
+
+    public string GetPosition()
+    {
+        return position;
+    }
+
+    public string GetDuty()
+    {
+        return duty;
+    }
+}
+
+class Airliner
+{
+    string model;
+    string Role;
+
+    public Airliner(string model, string role)
+    {
+        this.model = model;
+        Role = role;
+    }
+
+    public void Set(string model)
+    {
+        this.model = model;
+    }
+
+    public void Set(string model, string role)
+    {
+        this.model = model;
+        Role = role;
+    }
+
+    public void Show()
+    {
+        Console.WriteLine("Модель: " + model);
+        Console.WriteLine("Назначение: " + Role);
+    }
+}
+
+// 4/5
