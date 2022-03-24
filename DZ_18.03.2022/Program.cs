@@ -3,6 +3,8 @@
     using System;
     using MyHeaderNamespace;
     using static MyHeaderNamespace.MyHeaderClass;
+    using MyException;
+    using PasportNamespace;
 
     class Program
     {
@@ -93,12 +95,99 @@
 
         static void Task3()
         {
-            AnyKey();
+            try
+            {
+                Console.WriteLine("Пожалуйста, введите имя (0 - Выход в главное меню):");
+                string name = Console.ReadLine();
+                if(ExitTo(name, '0'))
+                {
+                    Console.Clear();
+                    return;
+                }
+                Console.WriteLine("Пожалуйста, введите фамилию (0 - Выход в главное меню):");
+                string surname = Console.ReadLine();
+                if (ExitTo(surname, '0'))
+                {
+                    Console.Clear();
+                    return;
+                }
+                Console.WriteLine("Пожалуйста, введите номер паспорта (0 - Выход в главное меню):");
+                string passportNumber = Console.ReadLine();
+                if (ExitTo(passportNumber, '0'))
+                {
+                    Console.Clear();
+                    return;
+                }
+                if (passportNumber.Length != 8)
+                {
+                    throw new MyExceptionToString("Ошибка ввода номера паспорта!");
+                }
+                ForeignPassport foreignPassport = new ForeignPassport(name, surname, passportNumber);
+                Console.Clear();
+                Console.WriteLine(foreignPassport.name);
+                Console.WriteLine(foreignPassport.surname);
+                Console.WriteLine(foreignPassport.passportNumber);
+                AnyKey();
+            }
+            catch (MyExceptionToString ex)
+            {
+                Console.WriteLine(ex.Message);
+                AnyKey();
+            }
+            catch
+            {
+                Console.WriteLine("\nНепредвиденная ошибка!\n");
+                AnyKey();
+            }
         }
 
         static void Task4()
         {
-            AnyKey();
+            try
+            {
+                Console.WriteLine("Пожалуйста, введите логическое выражение вида a < b:");
+                string expression = Console.ReadLine();
+                string[] subs = expression.Split('>', '<');
+                if (subs.Length != 2)
+                {
+                    throw new MyExceptionToString("\nОшибка ввода выражения!\n");
+                }
+                int leftoperand = Convert.ToInt32(subs[0]);
+                int rightoperand = Convert.ToInt32(subs[1]);
+                if (expression.Contains('>'))
+                {
+                    if (leftoperand > rightoperand)
+                    {
+                        Console.WriteLine("Уравнение верно!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Уравнение неверно!");
+                    }
+                }
+                if (expression.Contains('<'))
+                {
+                    if (leftoperand < rightoperand)
+                    {
+                        Console.WriteLine("Уравнение верно!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Уравнение неверно!");
+                    }
+                }
+                AnyKey();
+            }
+            catch (MyExceptionToString ex)
+            {
+                Console.WriteLine(ex.Message);
+                AnyKey();
+            }
+            catch
+            {
+                Console.WriteLine("\nНепредвиденная ошибка!\n");
+                AnyKey();
+            }
         }
     }
 }

@@ -2,21 +2,15 @@
 {
     public class ForeignPassport
     {
-        string name;
-        string surname;
-        string passportNumber;
-        int[] dateIssue;
+        public string name { get; set; }
+        public string surname { get; set; }
+        public string passportNumber { get; set; }
 
-        string Name
+        public ForeignPassport(string name, string surname, string passportNumber)
         {
-            get
-            {
-                return name;
-            }
-            set
-            {
-                name = value;
-            }
+            this.name = name;
+            this.surname = surname;
+            this.passportNumber = passportNumber;
         }
 
     }

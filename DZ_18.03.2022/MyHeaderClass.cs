@@ -42,6 +42,15 @@
             }
         }
 
+        public static bool ExitTo(string _string, char exit_character)
+        {
+            if (_string.Length != 0)
+            {
+                return _string[0] == exit_character && _string.Length == 1;
+            }
+            return false;
+        }
+
         public static bool ExitTo(int number, int exit_number)
         {
             return number == exit_number;
