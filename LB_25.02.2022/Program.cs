@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Text.RegularExpressions;
 
 namespace program
@@ -72,7 +71,7 @@ namespace program
             {
                 myarr[i] = rand.Next(1, 100);
             }
-            int even = 0, odd = 0, unique = 0, val = 0; ;
+            int even = 0, odd = 0, unique = 0, val = 0;
             foreach (var i in myarr)
             {
                 if (i % 2 == 0)
@@ -176,7 +175,7 @@ namespace program
             Random rand = new Random();
             int[] myarr1 = new int[5];
             int[] myarr2 = new int[10];
-            ArrayList myAl = new ArrayList();
+            List<int> myAl = new();
             for (int i = 0; i < myarr1.Length; i++)
             {
                 myarr1[i] = rand.Next(0, 10);
@@ -233,7 +232,7 @@ namespace program
         static void Task6()
         {
             Console.WriteLine("Пожалуйста, введите предложение: ");
-            string? sentense = Console.ReadLine();
+            string sentense = Console.ReadLine();
             int amount = sentense.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries).Length;
             Console.WriteLine($"В введённом вами предложении содержится {amount} слов");
             AnyKey();
@@ -242,7 +241,7 @@ namespace program
         static void Task7()
         {
             Console.WriteLine("Пожалуйста, введите предложение: ");
-            string? sentense = Console.ReadLine();
+            string sentense = Console.ReadLine();
             string[] revsen = sentense.Split();
             for (int i = 0; i < revsen.Length; i++)
             {
@@ -255,7 +254,7 @@ namespace program
         static void Task8()
         {
             Console.WriteLine("Пожалуйста, введите предложение: ");
-            string? sentense = Console.ReadLine();
+            string sentense = Console.ReadLine();
             int count = Regex.Matches(sentense, @"[ауоыиэяюёеeuoai]", RegexOptions.IgnoreCase).Count;
             Console.WriteLine($"Количество гласных - {count}");
             AnyKey();
@@ -281,4 +280,4 @@ namespace program
     }
 }
 
-// 2/5
+// 4/5

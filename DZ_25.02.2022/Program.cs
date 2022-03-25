@@ -121,12 +121,12 @@ namespace program
         static void Task2()
         {
             Random rand = new Random();
-            short[,] myarr = new short[5, 5];
+            int[,] myarr = new int[5, 5];
             for (int i = 0; i < 5; i++)
             {
                 for (int y = 0; y < 5; y++)
                 {
-                    myarr[i, y] = (short)rand.Next(-100, 100);
+                    myarr[i, y] = rand.Next(-100, 100);
                 }
             }
             Console.WriteLine("Наш массив: ");
@@ -138,12 +138,12 @@ namespace program
                 }
                 Console.WriteLine();
             }
-            int max = myarr.Cast<short>().Max();
-            int min = myarr.Cast<short>().Min();
+            int max = myarr.Cast<int>().Max();
+            int min = myarr.Cast<int>().Min();
             Console.WriteLine($"Максимум: {max}");
             Console.WriteLine($"Минимум: {min}");
 
-            ArrayList myAl = new ArrayList();
+            List<int> myAl = new();
             for (int i = 0; i < 5; i++)
             {
                 for (int y = 0; y < 5; y++)
@@ -155,7 +155,7 @@ namespace program
                 }
             }
             int sum = 0;
-            foreach (short i in myAl)
+            foreach (int i in myAl)
             {
                 sum += i;
             }
@@ -254,4 +254,4 @@ namespace program
     }
 }
 
-// 2/5
+// 3/5

@@ -21,13 +21,13 @@ namespace program
                 Console.Clear();
                 if (choice > 5)
                 {
-                    Console.Write("Пожалуйста, введите длину строки :");
+                    Console.Write("Пожалуйста, введите длину строки: ");
                     int lenght = Convert.ToInt32(Console.ReadLine());
                     Console.Write("Пожалуйста, выберите - горизотальный вывод (1)" +
                         "или вертикальный (2) :");
                     int output = Convert.ToInt32(Console.ReadLine());
                     Console.Write("Пожалуйста, выберите символ: ");
-                    string? c = Console.ReadLine();
+                    string c = Console.ReadLine();
                     if (output == 2) { c += "\n"; }
                     for (int i = 0; i < lenght; i++)
                     {
@@ -73,7 +73,7 @@ namespace program
                 else if (choice > 2)
                 {
                     Console.WriteLine("Пожалуйста, введите шестизначное число: ");
-                    string? c_number = Console.ReadLine();
+                    string c_number = Console.ReadLine();
                     Console.WriteLine($"Строка наоборот: {Environment.NewLine}");
                     for (int i = c_number.Length - 1; i > -1; --i)
                     {
@@ -124,4 +124,4 @@ namespace program
     }
 }
 
-// 2/5
+// 4/5
