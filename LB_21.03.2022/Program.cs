@@ -36,6 +36,29 @@
 
         static void Task2()
         {
+            List<FinancialInstitutionClient> client = new();
+
+            client.Add(new("Human1"));
+            client[0].AddMoney(10000);
+            client[0].ShowMoneyInfo();
+
+            client.Add(new("Human2"));
+            client[1].AddMoney(10000);
+            client[1].ShowMoneyInfo();
+
+            if(client[0] == client[1])
+            {
+                Console.WriteLine("Кошельки клиентов равны!");
+            }
+
+            client[1].SubstractMoney(1000);
+            client[1].ShowMoneyInfo();
+
+            if (client[0] != client[1])
+            {
+                Console.WriteLine("Кошельки клиентов не равны!");
+            }
+
             AnyKey();
         }
     }
