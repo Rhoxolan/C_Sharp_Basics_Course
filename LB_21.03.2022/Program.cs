@@ -52,12 +52,17 @@
             }
 
             client[1].SubstractMoney(1000);
+            client[0].ShowMoneyInfo();
             client[1].ShowMoneyInfo();
-
             if (client[0] != client[1])
             {
                 Console.WriteLine("Кошельки клиентов не равны!");
             }
+
+            Console.WriteLine("Human1 переводит 30 долларов Human-у2");
+            FinancialInstitutionClient.MoneyTransfer(client[0], client[1], 3000);
+            client[0].ShowMoneyInfo();
+            client[1].ShowMoneyInfo();
 
             AnyKey();
         }

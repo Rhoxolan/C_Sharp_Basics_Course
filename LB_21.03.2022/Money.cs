@@ -21,9 +21,19 @@
             return new Money { pennies = money1.pennies + money2.pennies };
         }
 
+        public static Money operator +(Money money1, int number)
+        {
+            return new Money { pennies = money1.pennies + number };
+        }
+
         public static Money operator -(Money money1, Money money2)
         {
             return new Money { pennies = money1.pennies - money2.pennies };
+        }
+
+        public static Money operator -(Money money1, int number)
+        {
+            return new Money { pennies = money1.pennies - number };
         }
 
         public static Money operator *(Money money, int number)
@@ -56,29 +66,35 @@
 
         public override bool Equals(object obj)
         {
-            return this.ToString() == obj.ToString();
+            if (obj == null || !(obj is Money))
+            {
+                return false;
+            }
+            else
+            {
+                return pennies == ((Money)obj).pennies;
+            }
         }
 
         public override int GetHashCode()
         {
-            return this.ToString().GetHashCode();
+            return pennies;
         }
 
         public static bool operator ==(Money money1, Money money2)
         {
-            return money1.Equals(money2);
+            return Object.Equals(money1, money2);
         }
 
         public static bool operator !=(Money money1, Money money2)
         {
-            return !(money1 == money2);
+            return !Object.Equals(money1, money2);
         }
 
         public int GetMoney()
         {
             return pennies;
         }
-
 
     }
 }

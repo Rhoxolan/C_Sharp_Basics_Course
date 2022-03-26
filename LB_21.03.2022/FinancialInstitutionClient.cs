@@ -1,6 +1,6 @@
 ﻿namespace program
 {
-    internal class FinancialInstitutionClient
+    public class FinancialInstitutionClient
     {
         public string name { get; set; }
         Money money;
@@ -11,7 +11,7 @@
             money = new();
         }
 
-        public void AddMoney(int pennies) //Указываем к-во в копейках
+        public void AddMoney(int pennies)
         {
             for (int i = 0; i < pennies; i++)
             {
@@ -19,7 +19,7 @@
             }
         }
 
-        public void SubstractMoney(int pennies) //Указываем к-во в копейках
+        public void SubstractMoney(int pennies)
         {
             for (int i = 0; i < pennies; i++)
             {
@@ -33,15 +33,11 @@
             Console.WriteLine(string.Format("{0} has {1:F2} USD", name, moneyValue));
         }
 
-        //public override bool Equals(object obj)
-        //{
-        //    return this.ToString() == obj.ToString();
-        //}
-
-        //public override int GetHashCode()
-        //{
-        //    return this.ToString().GetHashCode();
-        //}
+        public static void MoneyTransfer(FinancialInstitutionClient client1, FinancialInstitutionClient client2, int pennies)
+        {
+            client1.money -= pennies;
+            client2.money += pennies;
+        }
 
         public static bool operator ==(FinancialInstitutionClient client1, FinancialInstitutionClient client2)
         {
