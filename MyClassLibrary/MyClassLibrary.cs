@@ -1,5 +1,7 @@
 ﻿namespace MyClassLibrary
 {
+    using System.Text;
+
     public class MyConsoleFunctional
     {
         public static int NumberInput(int min, int max)
@@ -64,5 +66,30 @@
     public class MyExceptionToString : ApplicationException
     {
         public MyExceptionToString(string message) : base(message) { }
+    }
+
+    public class MyProgramFunctional
+    {
+        public static string Encryption(string _string)
+        {
+            StringBuilder sb = new StringBuilder(_string);
+            for (int i = 0; i < sb.Length; i++)
+            {
+                sb[i]++;
+            }
+            _string = sb.ToString();
+            return _string;
+        }
+
+        public static string Decryption(string _string)
+        {
+            StringBuilder sb = new StringBuilder(_string);
+            for (int i = 0; i < _string.Length; i++)
+            {
+                sb[i]--;
+            }
+            _string = sb.ToString();
+            return _string;
+        }
     }
 }

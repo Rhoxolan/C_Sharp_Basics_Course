@@ -179,18 +179,6 @@ namespace program
 
         static void Task4()
         {
-            int[] matrixDigit = new int[2] { 5, 10 }; //Допустим... Это матрица 😆
-            Console.WriteLine($"{matrixDigit[0]},{matrixDigit[1]}");
-            Console.WriteLine("Пожалуйста, введите число-оператор: ");
-            int num = Convert.ToInt32(Console.ReadLine());
-            int[] res = new int[2] { matrixDigit[0] + num, matrixDigit[1] + num };
-            Console.WriteLine($"Сложение: {res[0]},{res[1]}");
-            res[0] = matrixDigit[0] - num;
-            res[1] = matrixDigit[1] - num;
-            Console.WriteLine($"Вычитание: {res[0]},{res[1]}");
-            res[0] = matrixDigit[0] * num;
-            res[1] = matrixDigit[1] * num;
-            Console.WriteLine($"Умножение: {res[0]},{res[1]}");
             AnyKey();
         }
 
