@@ -4,6 +4,13 @@
     {
         private int pennies;
 
+        public Money() { }
+
+        public Money(Money money)
+        {
+            this.pennies = money.pennies;
+        }
+
         public static Money operator ++(Money money)
         {
             money.pennies++;
@@ -39,7 +46,6 @@
         public static Money operator *(Money money, int number)
         {
             money.pennies *= number;
-            money.pennies *= number;
             return money;
         }
 
@@ -52,9 +58,8 @@
         {
             if (number == 0)
             {
-                throw new DivideByZeroException("Попытка деления на ноль!"); //Протестировать!
+                throw new DivideByZeroException("Попытка деления на ноль! Операция отброшена!");
             }
-            money.pennies /= number;
             money.pennies /= number;
             return money;
         }

@@ -49,6 +49,20 @@
             return client1.money != client2.money;
         }
 
+        public void HirePurchase(int months)
+        {
+            try
+            {
 
+                Money credit_money = new(money);
+                credit_money /= months;
+                decimal moneyValue = (decimal)credit_money.GetMoney() / 100;
+                Console.WriteLine(string.Format("Регулярный платеж {0} на {1} месяцев - {2:F2} USD", name, months, moneyValue));
+            }
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }

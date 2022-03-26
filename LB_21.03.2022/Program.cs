@@ -64,6 +64,9 @@
             client[0].ShowMoneyInfo();
             client[1].ShowMoneyInfo();
 
+            client[1].HirePurchase(3);
+            client[0].ShowMoneyInfo();
+            client[1].ShowMoneyInfo();
             AnyKey();
         }
     }
