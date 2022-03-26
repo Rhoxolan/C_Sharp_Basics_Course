@@ -8,3 +8,4 @@ LB1 - Отработка конструкции Try Catch. Реализация функций NumberInput и ExitTo. 
 DZ1 - Отработка контрукции Try Catch. Использование MyHeaderNamespace. Класс ForeignPassport.
 21.03.2021:
 LB1 - первое использование MyClassLibrary. Перегрузка операторов. Классы Money->->FinancialInstitutionClient.
+DZ1 - перегрузка операторов. Подключена библиотека "DZ21032022ClassLibrary" с классом Tank.
