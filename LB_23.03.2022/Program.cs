@@ -53,6 +53,9 @@
 
         static void Task2()
         {
+            Collective people = new(7);
+            people[5] = new Person { Age = 31, Name = "Petro", Profession = "Fitter" };
+            Console.WriteLine(people[5]);
             AnyKey();
         }
     }

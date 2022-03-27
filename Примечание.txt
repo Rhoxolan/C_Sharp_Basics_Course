@@ -10,4 +10,4 @@ DZ1 - Отработка контрукции Try Catch. Использование MyHeaderNamespace. Класс For
 LB1 - первое использование MyClassLibrary. Перегрузка операторов. Классы Money->->FinancialInstitutionClient.
 DZ1 - перегрузка операторов. Игра World Of Tanks. Подключена библиотека "DZ21032022ClassLibrary" с классом Tank.
 23.03.2021:
-LB1 - тема "индексаторы". Класс ArrayRange (массив с установленным диапазоном), простейшее переопределение GetEnumerator() для работы с цмклом foreach.
+LB1 - тема "индексаторы". Класс Person->->Collective, Класс ArrayRange (массив с установленным диапазоном), простейшее переопределение GetEnumerator() для работы с циклом foreach.
