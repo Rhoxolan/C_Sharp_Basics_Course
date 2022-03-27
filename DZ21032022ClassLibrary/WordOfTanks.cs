@@ -5,35 +5,36 @@
     public class Tank
     {
         public string Model { get; set; }
-        public short Ammunition { get; set; }
-        public short Armor { get; set; }
-        public short Mobility { get; set; }
+        short ammunition;
+        short armor;
+        short mobility;
+        public bool Activity { get; set; } = true;
 
         public Tank(string model, short ammunition, short armor, short mobility)
         {
             Model = model;
-            Ammunition = ammunition;
-            Armor = armor;
-            Mobility = mobility;
+            this.ammunition = ammunition;
+            this.armor = armor;
+            this.mobility = mobility;
         }
 
         public static bool operator > (Tank tank1, Tank tank2)
         {
-            int tank1_points = 0;
-            int tank2_points = 0;
-            if (tank1.Ammunition > tank2.Ammunition) tank1_points++; else tank2_points++;
-            if (tank1.Armor > tank2.Armor) tank1_points++; else tank2_points++;
-            if (tank1.Mobility > tank2.Mobility) tank1_points++; else tank2_points++;
-            if ((tank1.Armor + tank1.Ammunition + tank1.Mobility) ==
-                    (tank2.Armor + tank2.Ammunition + tank1.Mobility))
+            short tank1_points = 0;
+            short tank2_points = 0;
+            if (tank1.ammunition > tank2.ammunition) tank1_points++; else tank2_points++;
+            if (tank1.armor > tank2.armor) tank1_points++; else tank2_points++;
+            if (tank1.mobility > tank2.mobility) tank1_points++; else tank2_points++;
+            if ((tank1.armor + tank1.ammunition + tank1.mobility) ==
+                    (tank2.armor + tank2.ammunition + tank1.mobility))
             {
                 Random r = new();
                 return r.Next(2) == 1;
             }
             if (tank1_points == tank2_points)
             {
-                return true && ((tank1.Armor + tank1.Ammunition + tank1.Mobility) >
-                    (tank2.Armor + tank2.Ammunition + tank1.Mobility));
+                return true && ((tank1.armor + tank1.ammunition + tank1.mobility) >
+                    (tank2.armor + tank2.ammunition + tank1.mobility));
             }
             if (tank1_points > tank2_points)
             {
@@ -51,15 +52,15 @@
             return !(tank1 > tank2);
         }
 
-        public static Tank operator* (Tank tank1, Tank tank2)
+        public static bool operator* (Tank tank1, Tank tank2)
         {
             if(tank1 > tank2)
             {
-                return tank1;
+                return true;
             }
             else
             {
-                return tank2;
+                return false;
             }
         }
     }
