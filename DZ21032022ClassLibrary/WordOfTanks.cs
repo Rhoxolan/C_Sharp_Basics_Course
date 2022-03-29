@@ -9,22 +9,45 @@
         short armor;
         short mobility;
         public bool Activity { get; set; } = true;
+        public int Number { get; set; }
 
-        public Tank(string model, short ammunition, short armor, short mobility)
+        public Tank(int number, string model, short ammunition, short armor, short mobility)
         {
             Model = model;
             this.ammunition = ammunition;
             this.armor = armor;
             this.mobility = mobility;
+            Number = number;
         }
 
         public static bool operator > (Tank tank1, Tank tank2)
         {
             short tank1_points = 0;
             short tank2_points = 0;
-            if (tank1.ammunition > tank2.ammunition) tank1_points++; else tank2_points++;
-            if (tank1.armor > tank2.armor) tank1_points++; else tank2_points++;
-            if (tank1.mobility > tank2.mobility) tank1_points++; else tank2_points++;
+            if (tank1.ammunition > tank2.ammunition)
+            {
+                tank1_points++;
+            }
+            else
+            {
+                tank2_points++;
+            }
+            if (tank1.armor > tank2.armor)
+            {
+                tank1_points++;
+            }
+            else
+            {
+                tank2_points++;
+            }
+            if (tank1.mobility > tank2.mobility)
+            {
+                tank1_points++;
+            }
+            else
+            {
+                tank2_points++;
+            }
             if ((tank1.armor + tank1.ammunition + tank1.mobility) ==
                     (tank2.armor + tank2.ammunition + tank1.mobility))
             {
@@ -44,7 +67,6 @@
             {
                 return false;
             }
-
         }
 
         public static bool operator <(Tank tank1, Tank tank2)
@@ -62,6 +84,11 @@
             {
                 return false;
             }
+        }
+
+        public override string ToString()
+        {
+            return $"{Number}. {Model}";
         }
     }
 }

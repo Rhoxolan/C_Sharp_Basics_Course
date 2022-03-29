@@ -2,67 +2,121 @@
 {
     using WordOfTanks;
     using System;
+    using static MyClassLibrary.MyConsoleFunctional;
 
     class Program
     {
         static void Main()
         {
-            Random random = new();
+            string[] tanks = {"AT-7", "AT-8", "AT-15", "FV215B 183", "Cromwell B",
+                "Black Prince", "IS-2", "WZ-131G FT", "WZ-113G FT", "Type 64", "T69",
+                "T37", "Tortoise", "FV217 Badger"};
 
-            Tank[] UKtanks = {
-                new("AT-7", (short)random.Next(0, 100), (short)random.Next(0, 100), (short)random.Next(0, 100)),
-                new("AT-8", (short)random.Next(0, 100), (short)random.Next(0, 100), (short)random.Next(0, 100)),
-                new("Cromwell B", (short)random.Next(0, 100), (short)random.Next(0, 100), (short)random.Next(0, 100)),
-                new("Black Prince", (short)random.Next(0, 100), (short)random.Next(0, 100), (short)random.Next(0, 100)),
-                new("FV215B 183", (short)random.Next(0, 100), (short)random.Next(0, 100), (short)random.Next(0, 100)),
-            };
-            Tank[] CHINAtanks = {
-                new("IS-2", (short)random.Next(0, 100), (short)random.Next(0, 100), (short)random.Next(0, 100)),
-                new("WZ-131G FT", (short)random.Next(0, 100), (short)random.Next(0, 100), (short)random.Next(0, 100)),
-                new("WZ-113G FT", (short)random.Next(0, 100), (short)random.Next(0, 100), (short)random.Next(0, 100)),
-                new("WZ-120", (short)random.Next(0, 100), (short)random.Next(0, 100), (short)random.Next(0, 100)),
-                new("Type 64", (short)random.Next(0, 100), (short)random.Next(0, 100), (short)random.Next(0, 100)),
-            };
+            Random random = new Random();
 
-            short UKtank_count = 5;
-            short CHINAtank_count = 5;
-
-            while (UKtank_count != 0 || CHINAtank_count != 0)
+            Tank[] comand1 =
             {
-                for (int i = 0; i < UKtank_count; i++)
+                new(1, tanks[random.Next(0, tanks.Length)], (short)random.Next(0, 100), (short)random.Next(0, 100),
+                (short)random.Next(0, 100)),
+                new(2, tanks[random.Next(0, tanks.Length)], (short)random.Next(0, 100), (short)random.Next(0, 100),
+                (short)random.Next(0, 100)),
+                new(3, tanks[random.Next(0, tanks.Length)], (short)random.Next(0, 100), (short)random.Next(0, 100),
+                (short)random.Next(0, 100)),
+                new(4, tanks[random.Next(0, tanks.Length)], (short)random.Next(0, 100), (short)random.Next(0, 100),
+                (short)random.Next(0, 100)),
+                new(5, tanks[random.Next(0, tanks.Length)], (short)random.Next(0, 100), (short)random.Next(0, 100),
+                (short)random.Next(0, 100)),
+                new(6, tanks[random.Next(0, tanks.Length)], (short)random.Next(0, 100), (short)random.Next(0, 100),
+                (short)random.Next(0, 100)),
+                new(7, tanks[random.Next(0, tanks.Length)], (short)random.Next(0, 100), (short)random.Next(0, 100),
+                (short)random.Next(0, 100))
+            };
+
+            Tank[] comand2 =
+            {
+                new(1, tanks[random.Next(0, tanks.Length)], (short)random.Next(0, 100), (short)random.Next(0, 100),
+                (short)random.Next(0, 100)),
+                new(2, tanks[random.Next(0, tanks.Length)], (short)random.Next(0, 100), (short)random.Next(0, 100),
+                (short)random.Next(0, 100)),
+                new(3, tanks[random.Next(0, tanks.Length)], (short)random.Next(0, 100), (short)random.Next(0, 100),
+                (short)random.Next(0, 100)),
+                new(4, tanks[random.Next(0, tanks.Length)], (short)random.Next(0, 100), (short)random.Next(0, 100),
+                (short)random.Next(0, 100)),
+                new(5, tanks[random.Next(0, tanks.Length)], (short)random.Next(0, 100), (short)random.Next(0, 100),
+                (short)random.Next(0, 100)),
+                new(6, tanks[random.Next(0, tanks.Length)], (short)random.Next(0, 100), (short)random.Next(0, 100),
+                (short)random.Next(0, 100)),
+                new(7, tanks[random.Next(0, tanks.Length)], (short)random.Next(0, 100), (short)random.Next(0, 100),
+                (short)random.Next(0, 100))
+            };
+
+            short comand1_count = 7;
+            short comand2_count = 7;
+            while (true)
+            {
+                Console.WriteLine("Ваша команда\t\t\t\t\tКоманда соперника");
+                for (int i = 0; i < 7; i++)
                 {
-                    if(UKtanks[i].Activity)
+                    if (comand1[i].Activity)
                     {
-                        for (int y = 0; y < CHINAtank_count; y++)
-                        {
-                            if (CHINAtanks[y].Activity)
-                            {
-                                if (UKtanks[i] * CHINAtanks[y])
-                                {
-                                    CHINAtanks[y].Activity = false;
-                                    CHINAtank_count--;
-                                    break;
-                                }
-                                else
-                                {
-                                    UKtanks[i].Activity = false;
-                                    UKtank_count--;
-                                    break;
-                                }
-                            }
-                        }
+                        Console.Write(comand1[i]);
                     }
+                    Console.Write("\t\t\t\t\t");
+                    if (comand2[i].Activity)
+                    {
+                        Console.Write(comand2[i]);
+                    }
+                    Console.WriteLine();
+                }
+                Console.WriteLine("\n\nПожалуйста, выберите ваш танк:");
+                int choice1;
+                while(true)
+                {
+                    choice1 = NumberInput(1, 7);
+                    choice1--;
+                    if (comand1[choice1].Activity)
+                        break;
+                    Console.WriteLine("\nЭтот танк уже уничтожен!\n");
+                }
+                Console.WriteLine("\n\nПожалуйста, выберите танк, который будем атаковать:");
+                int choice2;
+                while (true)
+                {
+                    choice2 = NumberInput(1, 7);
+                    choice2--;
+                    if (comand2[choice2].Activity)
+                        break;
+                    Console.WriteLine("\nЭтот танк уже уничтожен!\n");
+                }
+                if(comand1[choice1] * comand2[choice2])
+                {
+                    Console.WriteLine("Вражеский так уничтожен!");
+                    comand2[choice2].Activity = false;
+                    comand2_count--;
+                    AnyKey();
+                    if (comand2_count == 0)
+                        break;
+                }
+                else
+                {
+                    Console.WriteLine("Ваш так уничтожен!");
+                    comand1[choice1].Activity = false;
+                    comand1_count--;
+                    AnyKey();
+                    if (comand1_count == 0)
+                        break;
                 }
             }
-
-            if (UKtank_count == 0)
+            if (comand2_count == 0)
             {
-                Console.WriteLine("Команда Китая победила");
+                Console.WriteLine("Поздравляем! Ваша команда одержала безоговорочную победу!");
             }
             else
             {
-                Console.WriteLine("Команда UK победила");
+                Console.WriteLine("Ваша воманда проиграла!");
             }
         }
     }
 }
+
+// 5/5
