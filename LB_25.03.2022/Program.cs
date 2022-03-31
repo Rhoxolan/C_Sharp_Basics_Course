@@ -108,7 +108,17 @@ namespace program
 
         static void Task4()
         {
-
+            Figure[] figures =
+            {
+                new Square(10),
+                new Rectangle(10,20),
+                new Circle(3),
+                new Trapezoid(70, 77, 78)
+            };
+            foreach (Figure f in figures)
+            {
+                Console.WriteLine($"Area of {f.GetType().Name} is {f.GetArea()}");
+            }
             AnyKey();
         }
     }
