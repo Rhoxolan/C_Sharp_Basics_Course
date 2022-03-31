@@ -13,4 +13,4 @@ DZ1 - перегрузка операторов. Игра World Of Tanks. Подключена библиотека "DZ21032
 LB1 - тема "индексаторы". Класс Person->->Collective, Класс ArrayRange (массив с установленным диапазоном), простейшее переопределение GetEnumerator() для работы с циклом foreach.
 DZ1 - тема "индексаторы". Новый класс Journal с перегруженными операторами, класс Book->BookList.
 25.03.2021:
-LB1 - тема "Наследование". Классы Human->Buider, Pilot; Passport->ForeignPassport->->Person;
+LB1 - тема "Наследование". Классы Human->Buider, Pilot; Passport->ForeignPassport->->Person; Animal->Cats->Cat, Tiger;
