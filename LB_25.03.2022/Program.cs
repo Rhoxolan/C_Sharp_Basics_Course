@@ -97,6 +97,12 @@ namespace program
 
         static void Task3()
         {
+            Cat ruzhyk = new("Рыжий", "Мяу", "Кот Рыжик");
+            ruzhyk.Says();
+            Tiger vitalya = new("Полосатый", "Ррр", "Тигр");
+            vitalya.Name = "Тигр Виталя";
+            vitalya.Says();
+            Console.WriteLine("\n:)");
             AnyKey();
         }
 
