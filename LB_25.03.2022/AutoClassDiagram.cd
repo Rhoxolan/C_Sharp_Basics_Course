@@ -1,115 +1,115 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="program.Animal" Collapsed="true">
-    <Position X="8.75" Y="0.75" Width="1.5" />
+    <Position X="2.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Animal.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="program.Cats" Collapsed="true">
-    <Position X="8.75" Y="2" Width="1.5" />
+    <Position X="2.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
       <FileName>Animal.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="program.Cat" Collapsed="true">
-    <Position X="7.5" Y="3.5" Width="1.5" />
+    <Position X="1.5" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
       <FileName>Animal.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="program.Tiger" Collapsed="true">
-    <Position X="9.75" Y="3.5" Width="1.5" />
+    <Position X="3.75" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
       <FileName>Animal.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="program.Human" Collapsed="true">
-    <Position X="13" Y="0.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAEAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Human.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="program.Builder" Collapsed="true">
-    <Position X="14" Y="2" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AABAACAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Human.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="program.Pilot" Collapsed="true">
-    <Position X="11.75" Y="2" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAACAAAAAAAAEEAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
-      <FileName>Human.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="program.Passport" Collapsed="true">
-    <Position X="30.5" Y="0.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAIACAAAAAAAAAAAEAAAAQABAAAAAABAAAAAAAAAAA=</HashCode>
-      <FileName>Passport.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="program.ForeignPassport" Collapsed="true">
-    <Position X="28.75" Y="0.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAACAAAABAAAAAAAAAAAAAACAAAAAIIAEAAgAA=</HashCode>
-      <FileName>Passport.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="program.Person" Collapsed="true">
-    <Position X="28.75" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAgAAAAAAAAAQQABgIABkAAAAAMACgEA=</HashCode>
-      <FileName>Passport.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="program.Program" Collapsed="true">
-    <Position X="17" Y="0.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAIBAAAAAAABAAAAAE=</HashCode>
-      <FileName>Program.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="program.Figure" Collapsed="true">
-    <Position X="22.75" Y="0.75" Width="1.5" />
+    <Position X="5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
       <FileName>Figure.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="program.Square" Collapsed="true">
-    <Position X="21.75" Y="2" Width="1.5" />
+    <Position X="4" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
       <FileName>Figure.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="program.Rectangle" Collapsed="true">
-    <Position X="26.25" Y="2" Width="1.5" />
+    <Position X="6.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAEAAAAAA=</HashCode>
       <FileName>Figure.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="program.Circle" Collapsed="true">
-    <Position X="19.5" Y="2" Width="1.5" />
+    <Position X="8.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
       <FileName>Figure.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="program.Trapezoid" Collapsed="true">
-    <Position X="24" Y="2" Width="1.5" />
+    <Position X="1.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQQAAEAAAAAA=</HashCode>
       <FileName>Figure.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="program.Human" Collapsed="true">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAEAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Human.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="program.Builder" Collapsed="true">
+    <Position X="6.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAACAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Human.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="program.Pilot" Collapsed="true">
+    <Position X="8.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAEEAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Human.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="program.Passport" Collapsed="true">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIACAAAAAAAAAAAEAAAAQABAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Passport.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="program.ForeignPassport" Collapsed="true">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAABAAAAAAAAAAAAAACAAAAAIIAEAAgAA=</HashCode>
+      <FileName>Passport.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="program.Person" Collapsed="true">
+    <Position X="11.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAgAAAAAAAAAQQABgIABkAAAAAMACgEA=</HashCode>
+      <FileName>Passport.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="program.Program" Collapsed="true">
+    <Position X="13" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAIBAAAAAAABAAAAAE=</HashCode>
+      <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
