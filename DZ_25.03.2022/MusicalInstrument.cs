@@ -2,11 +2,9 @@
 
 namespace program
 {
-    internal abstract class MusicalInstrument : Product
+    internal abstract class MusicalInstrument : Device
     {
         public MusicalInstrument(string name, double price) : base(name, price) { }
-
-        public abstract string Description();
 
         public abstract string Classification();
     }

@@ -8,43 +8,6 @@ namespace program
     {
         static void Main()
         {
-            Menu();
-        }
-
-        static void Menu()
-        {
-            int choice;
-            do
-            {
-                Console.WriteLine("Пожалуйста, выбирите задание (1 - 4)\n0 - Выход\n\n");
-                choice = NumberInput(0, 4);
-                Console.Clear();
-                if (choice > 3)
-                {
-                    Task4();
-                }
-                else if (choice > 2)
-                {
-                    Task3();
-                }
-                else if (choice > 1)
-                {
-                    Task2();
-                }
-                else if (choice > 0)
-                {
-                    Task1();
-                }
-            } while (choice != 0);
-        }
-
-        static void Task1()
-        {
-            AnyKey();
-        }
-
-        static void Task2()
-        {
             Device[] devices = {
                 new Kettle("Philips HD9339/80", 1999),
                 new Microwave("BOSCH FFL020MW0", 2699),
@@ -65,22 +28,40 @@ namespace program
                 new TubularBells("ADAMS BK 5216L", 75000)
             };
             Console.WriteLine("\n\nОтдел музыкальных инструментов: ");
-            foreach(MusicalInstrument m in musicalInstrument)
+            foreach (MusicalInstrument m in musicalInstrument)
             {
                 Console.WriteLine($"{m.Description()} {m.Name} класса {m.Classification()} по цене {m.Price}");
             }
-            AnyKey();
+
+            Service[] services =
+            {
+                new Security("Охрана", 10000, "Предоставляем услуги охраны. Недорого."),
+                new Security("Охрана", 90000, "Предоставляем услуги охраны супермаркетов и продуктовых складов.")
+            };
+            Console.WriteLine($"\n\nРаздел услуг:");
+            foreach (Service service in services)
+            {
+                Console.WriteLine("Категория: " + service.Name);
+                Console.WriteLine("Оплата: " + service.Price + "/мес");
+                service.ShowProvidedWork();
+                Console.WriteLine();
+            }
+
+            Manager[] managers =
+            {
+                new President("Управление", 250000, "Услуги управления высшего ранга"),
+                new Engineer("Инжнерно-технические работы", 30000, "Пуско-наладочные электротехничские работы")
+            };
+            Console.WriteLine("Раздел услуг упралвения: ");
+            foreach (Manager manager in managers)
+            {
+                Console.WriteLine("Категория: " + manager.Name);
+                Console.WriteLine("Оплата: " + manager.Price + "/мес");
+                Console.WriteLine("Уровень: " + manager.GetRank());
+                manager.ShowProvidedWork();
+                Console.WriteLine();
+            };
         }
 
-        static void Task3()
-        {
-            AnyKey();
-        }
-
-        static void Task4()
-        {
-
-            AnyKey();
-        }
     }
 }
