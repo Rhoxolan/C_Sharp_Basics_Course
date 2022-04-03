@@ -5,22 +5,85 @@ namespace program
 {
     interface IWorker
     {
-        string GetWork();
+        string Name { get; set; }
+
+        string Rank { get; }
+        string Work { get; }
     }
 
     internal class Worker : IWorker
     {
-        public string GetWork()
+        string name;
+
+        public Worker(string name)
         {
-            return "Работаю!";
+            Name = name;
+        }
+
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+            }
+        }
+
+        public string Rank
+        {
+            get
+            {
+                return "Рабочий";
+            }
+        }
+
+        public string Work
+        {
+            get
+            {
+                return "Работаю!";
+            }
         }
     }
 
     internal class TeamLeader : IWorker
     {
-        public string GetWork()
+        string name;
+
+        public TeamLeader(string name)
         {
-            return "Формирую отчет!";
+            Name = name;
+        }
+        
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+            }
+        }
+        
+        public string Rank
+        {
+            get
+            {
+                return "Бригадир";
+            }
+        }
+
+        public string Work
+        {
+            get
+            {
+                return "Формирую отчет!";
+            }
         }
     }
 

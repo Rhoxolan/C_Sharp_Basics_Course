@@ -4,7 +4,7 @@ namespace program
 {
     interface IPart //Часть дома
     {
-        string GetName();
+        string Name { get; }
     }
 
     internal class House
@@ -29,41 +29,56 @@ namespace program
 
     internal class Basement : IPart
     {
-        public string GetName()
+        public string Name
         {
-            return "Фундамент";
+            get
+            {
+                return "Фасад";
+            }
         }
     }
 
     internal class Wall : IPart
     {
-        public string GetName()
+        public string Name
         {
-            return "Стена";
+            get
+            {
+                return "Стена";
+            }
         }
     }
 
     internal class Door : IPart
     {
-        public string GetName()
+        public string Name
         {
-            return "Дверь";
+            get
+            {
+                return "Дверь";
+            }
         }
     }
 
     internal class Window : IPart
     {
-        public string GetName()
+        public string Name
         {
-            return "Окно";
+            get
+            {
+                return "Окно";
+            }
         }
     }
 
     internal class Roof : IPart
     {
-        public string GetName()
+        public string Name
         {
-            return "Крыша";
+            get
+            {
+                return "Крыша";
+            }
         }
     }
 }
