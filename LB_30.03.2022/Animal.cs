@@ -26,7 +26,7 @@ namespace program
 
     internal class Tiger : IHawk
     {
-        string AnimalName { get; set; }
+        public string AnimalName { get; set; }
 
         public Tiger(string animalName)
         {
@@ -44,7 +44,7 @@ namespace program
 
     internal class Capreolus : IPray
     {
-        string AnimalName { get; set; }
+        public string AnimalName { get; set; }
 
         public Capreolus(string animalName)
         {
@@ -60,11 +60,11 @@ namespace program
         }
     }
 
-    internal class Dog : IHawk, IPray
+    internal class  Jackal : IHawk, IPray
     {
-        string AnimalName { get; set; }
+        public string AnimalName { get; set; }
 
-        public Dog(string animalName)
+        public Jackal(string animalName)
         {
             AnimalName = animalName;
         }
@@ -73,7 +73,7 @@ namespace program
         {
             get
             {
-                return "Собачка";
+                return "Шакал";
             }
         }
     }
