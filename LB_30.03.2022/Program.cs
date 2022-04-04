@@ -56,7 +56,7 @@ namespace program
             if(tiger.Attack && (jackal as IPray).Run
                 && tiger is Tiger && jackal is IPray)
             {
-                Console.WriteLine("Тигр нападает на собаку: ");
+                Console.WriteLine("Тигр нападает на шакала: ");
                 int rnd = rand.Next(0, 2);
                 if (rnd > 0)
                 {
@@ -74,7 +74,25 @@ namespace program
 
         static void Task2()
         {
-
+            Shop MyShop = new(new List<Laptop> { new Laptop("HP", 300), new Laptop("Asus", 250) });
+            MyShop.AddLaptop(new Laptop("Vinga", 400));
+            MyShop.AddLaptop(new Laptop("Vinga", 500));
+            MyShop[1] = new Laptop("Asus", 270);
+            foreach (Laptop laptop in MyShop)
+            {
+                Console.WriteLine(laptop);
+            }
+            Console.WriteLine();
+            foreach (Laptop laptop in MyShop["Vinga"]) //Благодаря перегруженному индексатору мы можем через цикл foreach
+            {                                          //Отобразить все эелементы с указанным названием!
+                Console.WriteLine(laptop);
+            }
+            MyShop["Vinga", "set"] = "Sienems"; //Эксперементальная конструкция - редактирование вcех элементов
+            Console.WriteLine();                //с указанным значением с использованием флага.
+            foreach (Laptop laptop in MyShop)
+            {
+                Console.WriteLine(laptop);
+            }
             AnyKey();
         }
     }
