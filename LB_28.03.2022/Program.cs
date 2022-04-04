@@ -55,7 +55,6 @@ namespace program
             int doors_amount = 1;
             int windows_amount = 1;
             int roofs_amount = 1;
-
             for (int i = 0; i < basements_amount; i++)
             {
                 while (true)
@@ -126,43 +125,7 @@ namespace program
                     }
                 }
             }
-
-            basements_amount = 0;
-            walls_amount = 0;
-            doors_amount = 0;
-            windows_amount = 0;
-            roofs_amount = 0;
-
-            for (int i = 0; i < house.Parts.Count(); i++)
-            {
-                if(house.Parts[i].GetType() == typeof(Basement))
-                {
-                    basements_amount++;
-                }
-                if(house.Parts[i].GetType() == typeof(Wall))
-                {
-                    walls_amount++;
-                }
-                if (house.Parts[i].GetType() == typeof(Door))
-                {
-                    doors_amount++;
-                }
-                if(house.Parts[i].GetType() == typeof(Window))
-                {
-                    windows_amount++;
-                }
-                if(house.Parts[i].GetType() == typeof(Roof))
-                {
-                    roofs_amount++;
-                }
-            }
-
-            Console.WriteLine($"\n\n\n{brigada.Workers[0].Work} {brigada.Workers[0].Rank} {brigada.Workers[0].Name} предоставил отчет:\n" +
-                $"{basements_amount} построенных фасадов;\n" +
-                $"{walls_amount} построенных стен;\n" +
-                $"{doors_amount} поставленных дверей;\n" +
-                $"{windows_amount} поставленных окон;\n" +
-                $"{roofs_amount} построенных крыш.");
+            Console.WriteLine((brigada.Workers[0] as TeamLeader).Report(house.Parts));
             AnyKey();
         }
     }

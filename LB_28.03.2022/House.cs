@@ -7,26 +7,6 @@ namespace program
         string Name { get; }
     }
 
-    internal class House
-    {
-        List<IPart> parts;
-
-        public House()
-        {
-            parts = new List<IPart>();
-        }
-
-        public void AddPart(IPart part)
-        {
-            parts.Add(part);
-        }
-
-        public List<IPart> Parts
-        {
-            get { return parts; }
-        }
-    }
-
     internal class Basement : IPart
     {
         public string Name
@@ -79,6 +59,26 @@ namespace program
             {
                 return "Крыша";
             }
+        }
+    }
+
+    internal class House
+    {
+        List<IPart> parts;
+
+        public House()
+        {
+            parts = new List<IPart>();
+        }
+
+        public void AddPart(IPart part)
+        {
+            parts.Add(part);
+        }
+
+        public List<IPart> Parts
+        {
+            get { return parts; }
         }
     }
 }
