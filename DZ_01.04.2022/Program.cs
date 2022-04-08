@@ -162,6 +162,14 @@ namespace program
 
         static void Task2()
         {
+            DateTime dateTime = DateTime.Now;
+            ShowCurrentDate(dateTime, ShowCurrentDayOfTheWeek);
+            ShowCurrentDate(dateTime, ShowCurrentTime);
+            ShowCurrentDate(dateTime, ShowCurrentDate);
+            Console.WriteLine($"Площадь равностороннего треугольника со стороной {4}:");
+            Console.WriteLine(Area(4, EquilateralTriangleArea));
+            Console.WriteLine($"Площадь квадрата со стороной {7.1}:");
+            Console.WriteLine(Area(7.1, SquareArea));
             AnyKey();
         }
 
@@ -210,5 +218,24 @@ namespace program
             }
             return false;
         }
+
+        static void ShowCurrentDate(DateTime dateTime, Action<DateTime> action)
+            => action(dateTime);
+
+        static void ShowCurrentTime(DateTime dateTime)
+            => Console.WriteLine($"Сейчас {dateTime.Hour}:{dateTime.Minute}");
+
+        static void ShowCurrentDate(DateTime dateTime)
+            => Console.WriteLine($"Сейчас {dateTime.Day}.{dateTime.Month}.{dateTime.Year}");
+
+        static void ShowCurrentDayOfTheWeek(DateTime dateTime)
+            => Console.WriteLine($"Today is {dateTime.DayOfWeek}");
+
+        static double Area(double a, Func<double, double> func)
+            => func(a);
+
+        static double EquilateralTriangleArea(double a) => (Math.Sqrt(3) / 4) * (a * 2);
+
+        static double SquareArea(double a) => a * a;
     }
 }
