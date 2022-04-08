@@ -100,7 +100,6 @@ namespace program
             {
                 Console.Write(i + " ");
             }
-
             //Вариант 2, с использованием массива обобщенных делигатов Predicate<T>
             Predicate<double>[] Is = { IsEven, IsSimple, IsFibonacci };
             evenlist.Clear();
