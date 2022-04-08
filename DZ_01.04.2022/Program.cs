@@ -100,6 +100,63 @@ namespace program
             {
                 Console.Write(i + " ");
             }
+
+            //Вариант 2, с использованием массива обобщенных делигатов Predicate<T>
+            Predicate<double>[] Is = { IsEven, IsSimple, IsFibonacci };
+            evenlist.Clear();
+            ntevenlist.Clear();
+            simplelist.Clear();
+            fibolist.Clear();
+            foreach (double i in mass)
+            {
+                if (Is[0](i))
+                {
+                    evenlist.Add(i);
+                }
+            }
+            foreach (double i in mass)
+            {
+                if (!Is[0](i))
+                {
+                    ntevenlist.Add(i);
+                }
+            }
+            _is = IsSimple;
+            foreach (double i in mass)
+            {
+                if (Is[1](i))
+                {
+                    simplelist.Add(i);
+                }
+            }
+            _is = IsFibonacci;
+            foreach (double i in mass)
+            {
+                if (Is[2](i))
+                {
+                    fibolist.Add(i);
+                }
+            }
+            Console.Write("\n\n\nЧетные числа: ");
+            foreach (double i in evenlist)
+            {
+                Console.Write(i + " ");
+            }
+            Console.Write("\nНечетные числа: ");
+            foreach (double i in ntevenlist)
+            {
+                Console.Write(i + " ");
+            }
+            Console.Write("\nПростые числа: ");
+            foreach (double i in simplelist)
+            {
+                Console.Write(i + " ");
+            }
+            Console.Write("\nЧисла Фибоначчи: ");
+            foreach (double i in fibolist)
+            {
+                Console.Write(i + " ");
+            }
             AnyKey();
         }
 
