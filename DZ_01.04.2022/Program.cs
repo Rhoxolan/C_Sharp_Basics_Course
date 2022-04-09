@@ -100,6 +100,7 @@ namespace program
             {
                 Console.Write(i + " ");
             }
+
             //Вариант 2, с использованием массива обобщенных делигатов Predicate<T>
             Predicate<double>[] Is = { IsEven, IsSimple, IsFibonacci };
             evenlist.Clear();
@@ -174,6 +175,11 @@ namespace program
 
         static void Task3()
         {
+            //Вариант 1, без событий
+            {
+                CreditCardV1.CreditCard creditCard = new("XXXX XXXX XXXX XXXX", "XXX", "XX.XX.XXXX", "XXXX");
+                creditCard.CreditLimit = 10000;
+            }
             AnyKey();
         }
 
