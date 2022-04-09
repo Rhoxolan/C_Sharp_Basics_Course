@@ -4,10 +4,12 @@ using static MyClassLibrary.MyConsoleFunctional;
 
 namespace CreditCardV1
 {
-    public delegate void Message(string message);
+    //public delegate void Message(string message);
 
     internal class CreditCard
     {
+        public delegate void Message(string message);
+
         Message? message;
 
         public string? CardNumber { get; set; }
