@@ -5,7 +5,6 @@ using static MyClassLibrary.MyConsoleFunctional;
 //Вариант 1, без использования событий
 namespace CreditCardV1
 {
-
     public delegate void Message(string message);
 
     internal class CreditCard
@@ -90,7 +89,7 @@ namespace CreditCardV1
     }
 }
 
-//Вариант 1, с использованием событий
+//Вариант 2, с использованием событий
 namespace CreditCardV2
 {
     internal class CreditCard
