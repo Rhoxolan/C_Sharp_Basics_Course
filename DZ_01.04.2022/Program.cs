@@ -193,6 +193,27 @@ namespace program
                 creditCard.ShowMoney();
                 Console.WriteLine();
                 creditCard.SetPin();
+                Console.WriteLine("\n\n");
+            }
+
+            //Вариант 2, c событиями
+            {
+                CreditCardV2.CreditCard creditCard = new("XXXX XXXX XXXX XXXX", "XXX", "XX.XX.XXXX", "XXXX");
+                creditCard.CreditLimit = 10000;
+                creditCard.AddMoney(170000);
+                Console.WriteLine();
+                creditCard.Message += PrintConsoleMessage;
+                creditCard.AddMoney(15000);
+                Console.WriteLine();
+                creditCard.SubMoney(5000);
+                Console.WriteLine();
+                creditCard.ShowMoney();
+                Console.WriteLine();
+                creditCard.SubMoney(35000);
+                Console.WriteLine();
+                creditCard.SubMoney(15000);
+                Console.WriteLine();
+                creditCard.ShowMoney();
             }
             AnyKey();
         }
