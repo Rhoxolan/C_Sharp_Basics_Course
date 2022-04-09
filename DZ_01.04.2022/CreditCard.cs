@@ -62,10 +62,12 @@ namespace CreditCardV1
             {
                 moneyAmount -= sum;
                 message?.Invoke($"Со счета списано {sum} у.е.");
+                return;
             }
             if ((moneyAmount - sum) < (0 - creditLimit))
             {
                 message?.Invoke($"Недостаточно средств на счету!");
+                return;
             }
             throw new MyExceptionToString("Неизветная ошибка!");
         }

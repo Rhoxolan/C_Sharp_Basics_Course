@@ -179,6 +179,20 @@ namespace program
             {
                 CreditCardV1.CreditCard creditCard = new("XXXX XXXX XXXX XXXX", "XXX", "XX.XX.XXXX", "XXXX");
                 creditCard.CreditLimit = 10000;
+                creditCard.RegisterHandler(PrintConsoleMessage);
+                creditCard.AddMoney(15000);
+                Console.WriteLine();
+                creditCard.SubMoney(5000);
+                Console.WriteLine();
+                creditCard.ShowMoney();
+                Console.WriteLine();
+                creditCard.SubMoney(35000);
+                Console.WriteLine();
+                creditCard.SubMoney(15000);
+                Console.WriteLine();
+                creditCard.ShowMoney();
+                Console.WriteLine();
+                creditCard.SetPin();
             }
             AnyKey();
         }
@@ -236,11 +250,12 @@ namespace program
         static void ShowCurrentDayOfTheWeek(DateTime dateTime)
             => Console.WriteLine($"Today is {dateTime.DayOfWeek}");
 
-        static double Area(double a, Func<double, double> func)
-            => func(a);
+        static double Area(double a, Func<double, double> func) => func(a);
 
         static double EquilateralTriangleArea(double a) => (Math.Sqrt(3) / 4) * (a * 2);
 
         static double SquareArea(double a) => a * a;
+
+        static void PrintConsoleMessage(string? message) => Console.WriteLine(message);
     }
 }
