@@ -9,6 +9,7 @@ namespace program
         public delegate bool IS(double num); //Пример обычного делегата
         public delegate T IST<T, K>(K val); //Пример обобщенного делегата
         public delegate double _MATH(double num);
+        public delegate void voidDelegate(ref int[] val1, ref List<int> val2);
 
         static void Main()
         {
@@ -131,11 +132,70 @@ namespace program
 
         static void Task6()
         {
+            int[] arr = { 8, 115, -0, 0 };
+            var lmbd = (int[] arr) => //Пример неявной типизации (определение переменной с помощью оператора var)
+            {
+                int max = int.MaxValue;
+                foreach (var i in arr)
+                {
+                    if (i < max)
+                    {
+                        max = i;
+                    }
+                }
+                return max;
+            };
+            Console.WriteLine(lmbd(arr));
             AnyKey();
         }
 
         static void Task7()
         {
+            {
+                List<int> notevens = new();
+                int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+                voidDelegate? addtonotevens = (ref int[] arr, ref List<int> l) =>
+                {
+                    foreach (var i in arr)
+                    {
+                        if (i % 2 != 0)
+                        {
+                            l.Add(i);
+                        }
+                    }
+                };
+                addtonotevens(ref arr, ref notevens);
+                foreach (var i in notevens)
+                {
+                    Console.Write(i + " ");
+                }
+                Console.WriteLine();
+            }
+
+            //Пример "чистого" лямбда-выражения, без делегата
+            {
+                List<int> notevens = new();
+                int[] arr = { 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+
+                var addtonotevens = (ref int[] arr, ref List<int> l) =>
+                {
+                    foreach (var i in arr)
+                    {
+                        if (i % 2 != 0)
+                        {
+                            l.Add(i);
+                        }
+                    }
+                };
+
+                addtonotevens(ref arr, ref notevens);
+
+                foreach (var i in notevens)
+                {
+                    Console.Write(i + " ");
+                }
+            }
+            Console.WriteLine();
             AnyKey();
         }
 
