@@ -1,9 +1,12 @@
 ﻿using System;
 using static MyClassLibrary.MyConsoleFunctional;
 using MyClassLibrary;
+using System.Drawing;
 
 namespace program
 {
+    public delegate T _delegate<out T>();
+
     class Program
     {
         static void Main()
@@ -48,6 +51,19 @@ namespace program
 
         static void Task1()
         {
+            _delegate<Color> toColor = delegate
+            {
+                Console.WriteLine("Пожалуйста, введите первый цвет (R) в формате RGB:");
+                byte R = Convert.ToByte(NumberInput(0, 255));
+                Console.WriteLine("Пожалуйста, введите второй цвет (G) в формате RGB:");
+                byte G = Convert.ToByte(NumberInput(0, 255));
+                Console.WriteLine("Пожалуйста, введите второй цвет (B) в формате RGB:");
+                byte B = Convert.ToByte(NumberInput(0, 255));
+                Color color = new();
+                color = Color.FromArgb(R, G, B);
+                return color;
+            };
+            Color color = toColor();
             AnyKey();
         }
 
