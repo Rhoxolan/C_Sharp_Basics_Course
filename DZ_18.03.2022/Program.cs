@@ -18,7 +18,7 @@
             int choice;
             do
             {
-                Console.WriteLine("Пожалуйста, выбирите задание (от 1-го до 4-и)\n0 - Выход\n\n");
+                Console.WriteLine("Пожалуйста, выберите задание (от 1-го до 4-и)\n0 - Выход\n\n");
                 choice = NumberInput(0, 4);
                 Console.Clear();
                 if (choice > 3)

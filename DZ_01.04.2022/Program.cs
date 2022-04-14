@@ -18,7 +18,7 @@ namespace program
             int choice;
             do
             {
-                Console.WriteLine("Пожалуйста, выбирите задание (1 - 3)\n0 - Выход\n\n");
+                Console.WriteLine("Пожалуйста, выберите задание (1 - 3)\n0 - Выход\n\n");
                 choice = NumberInput(0, 3);
                 Console.Clear();
                 if (choice > 2)

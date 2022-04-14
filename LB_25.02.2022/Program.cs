@@ -10,7 +10,7 @@ namespace program
             short choice;
             do
             {
-                Console.WriteLine($"Пожалуйста, выбирите задание (от 1-го до 9-и)\n" +
+                Console.WriteLine($"Пожалуйста, выберите задание (от 1-го до 9-и)\n" +
                 $"0 - Выход\n\n");
                 choice = Convert.ToInt16(Console.ReadLine());
                 Console.Clear();

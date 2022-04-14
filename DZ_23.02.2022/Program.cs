@@ -9,7 +9,7 @@ namespace program
             int choice;
             do
             {
-                Console.WriteLine($"Пожалуйста, выбирите:{Environment.NewLine}" +
+                Console.WriteLine($"Пожалуйста, выберите:{Environment.NewLine}" +
                 $"1 - Fizz/Buzz{Environment.NewLine}" +
                 $"2 - Проценты{Environment.NewLine}" +
                 $"3 - Число из цифер{Environment.NewLine}" +
