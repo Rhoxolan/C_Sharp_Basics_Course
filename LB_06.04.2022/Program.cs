@@ -148,7 +148,18 @@ namespace program
             Console.WriteLine(fraction1 == fraction3); //False
             Console.WriteLine(fraction1.Equals(fraction2)); //True
             Console.WriteLine(fraction1 != fraction2); //False
-
+            Fraction fraction4 = new(1, 25);
+            Fraction fraction5 = new(100, 2);
+            Fraction[] fractions = { fraction1, fraction2, fraction3, fraction4, fraction5 };
+            try
+            {
+                Console.WriteLine($"Наименьший результат дроби в {fractions}: {fractions.GetMinMaxResult().Min}, " +
+                    $"наибольший: {fractions.GetMinMaxResult().Max}.");
+            }
+            catch (StackOverflowException SOVEX)
+            {
+                Console.WriteLine(SOVEX.Message);
+            }
             AnyKey();
         }
     }
