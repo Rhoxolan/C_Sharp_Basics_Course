@@ -104,7 +104,7 @@ namespace program
         {
             Console.Write("Пожалуйста, введите вашу строку: ");
             string? _str = Console.ReadLine();
-            Console.Write($"В вашей строке {_str.WordsCount()} предложений.");
+            Console.Write($"В вашей строке {_str.SentenceCount()} предложений.");
             AnyKey();
         }
 
@@ -204,7 +204,7 @@ namespace program
             return Regex.Matches(_str, @"[йцкнгшщзхфвпрлджчсмтбqwrtpsdfghjklzxcvbnm]", RegexOptions.IgnoreCase).Count;
         }
 
-        public static int WordsCount(this String _str)
+        public static int SentenceCount(this String _str)
         {
             return _str.Split(new string[] { "." }, StringSplitOptions.RemoveEmptyEntries).Length;
         }

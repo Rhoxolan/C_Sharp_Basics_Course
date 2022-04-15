@@ -29,3 +29,4 @@ LB1 - тема "делегаты, событи€". ѕроработка делегатов, анонимных методов и л€мбда
 DZ1 - тема "делегаты, событи€". ѕроработка делегатов, анонимных методов и л€мбда-выражений.  ласс Backpack.
 06.04.2022:
 LB1 - тема "делегаты, событи€". ѕроработка extension методов (Int32, Double и String); Record класс Person с extension методами дл€ List<Person>; Record класс Point2D с extension методами своего типа, пример работы с with; Record класс Fraction с extension методами своего типа, пример возвращени€ кортежа из функции.
+DZ1 - тема "делегаты, событи€". ѕроработка extension методов (Int32 и String); ’ороший пример работы с Predicate<T>; Record класс StudentMarks с extension методами своего типа; Record класс DailyTemperature с extension методами своего типа.
