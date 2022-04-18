@@ -67,11 +67,23 @@ namespace program
 
         static void Task3()
         {
+            MyList<CalcInt> list = new();
+            list.Add(new CalcInt(10));
+            list.Add(new CalcInt(7));
+            list.Add(new CalcInt(8));
+            list.Add(new CalcInt(4));
+            list.Add(new CalcInt(2));
+            Console.WriteLine(list.Sum());
             AnyKey();
         }
 
         static void Task4()
         {
+            MyStack<byte> bytestack = new();
+            bytestack._Push(1);
+            bytestack._Push(2);
+            bytestack._Push(3);
+            Console.WriteLine(bytestack._Peek());
             AnyKey();
         }
 
@@ -107,6 +119,81 @@ namespace program
             }
             return min;
         }
+
     }
 
+    interface ICalc<T>
+    {
+        T Sum(T item);
+    }
+
+    class CalcInt : ICalc<CalcInt>
+    {
+        private int number;
+        public CalcInt Sum(CalcInt item)
+        {
+            return new CalcInt(this.number + item.number);
+        }
+
+        public CalcInt(int num)
+        {
+            number = num;
+        }
+
+        public override string ToString()
+        {
+            return number.ToString();
+        }
+    }
+
+    class MyList<T> where T: ICalc<T>
+    {
+        List<T> list = new List<T>();
+
+        public void Add(T item)
+        {
+            list.Add(item);
+        }
+
+
+        public T Sum()
+        {
+            if (list.Count == 0)
+                return default(T);
+            T res = list[0];
+            for (int i = 1; i < list.Count; i++)
+                res = res.Sum(list[i]);
+            return res;
+        }
+    }
+
+    class MyStack<T>
+    {
+        private Stack<T> stack;
+
+        public MyStack()
+        {
+            stack = new Stack<T>();
+        }
+
+        public T _Pop()
+        {
+            return stack.Pop();
+        }
+
+        public void _Push(T val)
+        {
+            stack.Push(val);
+        }
+
+        public T _Peek()
+        {
+            return stack.Peek();
+        }
+
+        public int _Count()
+        {
+            return stack.Count();
+        }
+    }
 }
