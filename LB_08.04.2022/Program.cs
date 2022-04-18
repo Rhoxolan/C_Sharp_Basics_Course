@@ -83,11 +83,11 @@ namespace program
         static T GetMax<T>(T num1, T num2, T num3) where T : IComparable<T>
         {
             T max = num1;
-            if (num2.CompareTo(max) > 0)
+            if (num2 is not null && num2.CompareTo(max) > 0)
             {
                 max = num2;
             }
-            if (num3.CompareTo(max) > 0)
+            if (num3 is not null && num3.CompareTo(max) > 0)
             {
                 max = num3;
             }
@@ -97,11 +97,11 @@ namespace program
         static T GetMin<T>(T num1, T num2, T num3) where T : IComparable<T>
         {
             T min = num1;
-            if (num2.CompareTo(min) < 0)
+            if (num2 is not null && num2.CompareTo(min) < 0)
             {
                 min = num2;
             }
-            if (num3.CompareTo(min) < 0)
+            if (num3 is not null && num3.CompareTo(min) < 0)
             {
                 min = num3;
             }
