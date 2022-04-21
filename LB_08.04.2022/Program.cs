@@ -117,7 +117,7 @@ namespace program
             return min;
         }
 
-        static T GetArraySum<T>(T[] values) where T : INumber<T>
+        static T GetArraySum<T>(T[] values) where T : INumber<T> //Пример работы с Generic арифметикой
         {
             T sum = T.Zero;
             foreach(T value in values)
@@ -126,6 +126,7 @@ namespace program
             }
             return sum;
         }
+
     }
 
     class MyStack<T>
