@@ -173,6 +173,11 @@ namespace program
                     }
                     Console.WriteLine("\n\n");
                 }
+                //Dictionary<K, V>
+                {
+                    Dictionary<int, string> d = new();
+
+                }
             }
         }
     }
