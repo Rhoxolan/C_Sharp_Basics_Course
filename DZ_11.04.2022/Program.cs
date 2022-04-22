@@ -175,8 +175,10 @@ namespace program
                 }
                 //Dictionary<K, V>
                 {
-                    Dictionary<int, string> d = new();
-
+                    Dictionary<int, string> d = new() { {1, "Петя" },{0, "Коля" } };
+                    d.Add(2, "Вася");
+                    d.Add(3, "Иннокентий");
+                    //Поискать, есть ли коллекция с неуникальными наборами ключей
                 }
             }
         }
