@@ -176,9 +176,25 @@ namespace program
                 //Dictionary<K, V>
                 {
                     Dictionary<int, string> d = new() { {1, "Петя" },{0, "Коля" } };
-                    d.Add(2, "Вася");
+
+                    d.Add(2, "Вася"); //Разные способы добавлений
                     d.Add(3, "Иннокентий");
-                    //Поискать, есть ли коллекция с неуникальными наборами ключей
+                    d[35] = "Антон";
+                    foreach (var v in d)
+                    {
+                        Console.WriteLine(v.Key + " " + v.Value);
+                    }
+                    Console.WriteLine();
+
+                    d[2] = "Василий"; //Переустанавливаем значение по ключу
+                    Console.WriteLine(d[2]); //Отображаем значение по ключу
+
+                    d.Remove(35);
+                    foreach (var v in d)
+                    {
+                        Console.WriteLine(v.Key + " " + v.Value);
+                    }
+                    Console.WriteLine();
                 }
             }
         }
