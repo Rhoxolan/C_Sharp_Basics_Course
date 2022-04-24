@@ -50,10 +50,44 @@ namespace program
                 }
             }
 
-            //Класс StreamWriter
+            //Классы StreamWriter и StreamReader
             {
-
+                //Запись
+                using (StreamWriter writer = new StreamWriter(Path.Combine(docPath, "File3.txt"), false)) //false - файл перезаписывается заново
+                {
+                    writer.WriteLine("Строка");
+                    writer.Write("Без строки");
+                    writer.WriteLine("Строка");
+                }
+                //Добавление
+                using (StreamWriter writer = new StreamWriter(Path.Combine(docPath, "File3.txt"), true)) //true - файл не перезаписывается заново
+                {
+                    writer.WriteLine("Строка");
+                }
+                //Чтение
+                using (StreamReader reader = new StreamReader(Path.Combine(docPath, "File3.txt")))
+                {
+                    string text = reader.ReadToEnd();
+                    Console.WriteLine(text);
+                }
+                //Чтение
+                using (StreamReader reader = new StreamReader(Path.Combine(docPath, "File3.txt")))
+                {
+                    List<string> lines = new();
+                    string? buf;
+                    while ((buf = reader.ReadLine()) != null)
+                    {
+                        lines.Add(buf.ToString());
+                    }
+                    foreach (string line in lines)
+                    {
+                        Console.WriteLine(line);
+                    }
+                    Console.WriteLine("End lines\n\n");
+                }
             }
+
+
         }
     }
 }
