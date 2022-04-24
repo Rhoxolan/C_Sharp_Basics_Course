@@ -27,10 +27,33 @@ namespace program
 
                 //Создаем, считываем и записываем ASCII фаил с помощью класса File
                 File.WriteAllText(Path.Combine(docPath, "AsciiFile.txt"), "This is Ascii", Encoding.ASCII);
-                Console.WriteLine(File.ReadAllText(Path.Combine(docPath, "AsciiFile.txt"), Encoding.ASCII));
+                Console.WriteLine(File.ReadAllText(Path.Combine(docPath, "AsciiFile.txt"), Encoding.ASCII) + "\n\n");
             }
 
+            //Класс FileStream
+            {
+                string text = "Текст FileStream";
 
+                // запись в файл
+                using (FileStream fstream = new FileStream(Path.Combine(docPath, "File2.txt"), FileMode.OpenOrCreate))
+                {
+                    byte[] buffer = Encoding.Default.GetBytes(text);
+                    fstream.Write(buffer, 0, buffer.Length);
+                }
+                //Чтение из файла 
+                using (FileStream fstream = File.OpenRead(Path.Combine(docPath, "File2.txt")))
+                {
+                    byte[] buffer = new byte[fstream.Length];
+                    fstream.ReadAsync(buffer, 0, buffer.Length);
+                    string textFromFile = Encoding.Default.GetString(buffer);
+                    Console.WriteLine(textFromFile);
+                }
+            }
+
+            //Класс StreamWriter
+            {
+
+            }
         }
     }
 }
