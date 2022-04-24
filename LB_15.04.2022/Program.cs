@@ -87,7 +87,21 @@ namespace program
                 }
             }
 
-
+            //Классы BinaryWriter и BinaryReader
+            {
+                //Запись
+                using (BinaryWriter writer = new BinaryWriter(File.Open(Path.Combine(docPath, "BinFile.dat"), FileMode.OpenOrCreate)))
+                {
+                    writer.Write("Bin Строка");
+                }
+                //Считывание
+                using (BinaryReader reader = new BinaryReader(File.Open(Path.Combine(docPath, "BinFile.dat"), FileMode.Open)))
+                {
+                    // считываем из файла строку
+                    string _str = reader.ReadString();
+                    Console.WriteLine(_str);
+                }
+            }
         }
     }
 }
