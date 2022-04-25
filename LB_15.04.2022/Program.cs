@@ -102,6 +102,49 @@ namespace program
                     Console.WriteLine(_str);
                 }
             }
+
+            //Задание 1 (Lab_16)
+            {
+                int[,] ints = { { 1, 2 }, { 3, 4 }, { 5, 6 } };
+                double[,] doubles = { { 1.5, 2.5 }, { 3.5, 4.5 }, { 5.5, 6.5 } };
+                string family = "family";
+                string name = "name";
+                string patronymic = "patronymic";
+                DateTime dateOfBirth = new(1990, 1, 1);
+
+                try
+                {
+                    FileStream fs = new(Path.Combine(docPath, "PW_File.txt"), FileMode.CreateNew);
+                    using (StreamWriter sw = new(fs))
+                    {
+                        sw.Write(family + " " + name + " " + patronymic + Environment.NewLine);
+                        sw.Write(dateOfBirth.ToString());
+                        sw.WriteLine();
+                        for (int i = 0; i < ints.GetLength(0); i++)
+                        {
+                            for(int j = 0; j < ints.GetLength(1); j++)
+                            {
+                                sw.Write(ints[i, j].ToString() + " ");
+                            }
+                            sw.WriteLine();
+                        }
+                        sw.WriteLine();
+                        for (int i = 0; i < doubles.GetLength(0); i++)
+                        {
+                            for (int j = 0; j < doubles.GetLength(1); j++)
+                            {
+                                sw.Write(doubles[i, j].ToString() + " ");
+                            }
+                            sw.WriteLine();
+                        }
+                        sw.WriteLine(Environment.NewLine + DateTime.Now.ToString());
+                    }
+                }
+                catch (IOException IOEX)
+                {
+                    Console.WriteLine(IOEX.Message);
+                }
+            }
         }
     }
 }
