@@ -166,7 +166,7 @@ namespace program
 
         static void AddBestOilLog(string text, string docPath)
         {
-            FileStream fs = new(Path.Combine(docPath, "bestOillog.log"), FileMode.Append);
+            FileStream fs = new(Path.Combine(docPath, "bestOillog.bestoillogs"), FileMode.Append);
             using (StreamWriter sw = new(fs))
             {
                 sw.WriteLine(DateTime.Now.ToString() + ": " + text);
