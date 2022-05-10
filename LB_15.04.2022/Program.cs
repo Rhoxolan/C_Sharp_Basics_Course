@@ -148,9 +148,28 @@ namespace program
 
             //Задание 2 (HW16)
             {
-                BestOil bestOil = new(100, 150);
-                MakeBestOilIni(bestOil, docPath);
-                //Протестить реад
+                try
+                {
+                    BestOil bestOil = new(100, 150);
+                    MakeBestOilIni(bestOil, docPath);
+                    readBestOilIni(out BestOil bestOil2, docPath);
+                    Console.WriteLine($"\n\n10 литров А95: {bestOil2.A95Sum(10)} грн");
+                    Console.WriteLine($"\n\n10 литров А95: {bestOil2.A95Sum(1005)} грн");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    AddBestOilLog(ex.Message, docPath);
+                }
+            }
+        }
+
+        static void AddBestOilLog(string text, string docPath)
+        {
+            FileStream fs = new(Path.Combine(docPath, "bestOillog.log"), FileMode.Append);
+            using (StreamWriter sw = new(fs))
+            {
+                sw.WriteLine(DateTime.Now.ToString() + ": " + text);
             }
         }
 
@@ -161,7 +180,7 @@ namespace program
             {
                 sw.WriteLine("[Oils]");
                 sw.WriteLine(bestOil.A95.ToString());
-                sw.WriteLine(bestOil.A95.ToString());
+                sw.WriteLine(bestOil.A98.ToString());
             }
         }
 
@@ -192,11 +211,19 @@ namespace program
 
         public double A95Sum(double litres)
         {
+            if (litres > 1000)
+            {
+                throw new Exception("Превышен лимит");
+            }
             return A95 * litres;
         }
 
         public double A98Sum(double litres)
         {
+            if (litres > 1000)
+            {
+                throw new Exception("Превышен лимит");
+            }
             return A98 * litres;
         }
     }
