@@ -145,6 +145,59 @@ namespace program
                     Console.WriteLine(IOEX.Message);
                 }
             }
+
+            //Задание 2 (HW16)
+            {
+                BestOil bestOil = new(100, 150);
+                MakeBestOilIni(bestOil, docPath);
+                //Протестить реад
+            }
+        }
+
+        static void MakeBestOilIni(BestOil bestOil, string docPath)
+        {
+            FileStream fs = new(Path.Combine(docPath, "bestOil.ini"), FileMode.OpenOrCreate);
+            using (StreamWriter sw = new(fs))
+            {
+                sw.WriteLine("[Oils]");
+                sw.WriteLine(bestOil.A95.ToString());
+                sw.WriteLine(bestOil.A95.ToString());
+            }
+        }
+
+        static void readBestOilIni(out BestOil bestOil, string docPath)
+        {
+            double A95 = 0;
+            double A98 = 0;
+            FileStream fs = new(Path.Combine(docPath, "bestOil.ini"), FileMode.OpenOrCreate);
+            using (StreamReader sr = new StreamReader(fs))
+            {
+                sr.ReadLine();
+                A95 = Convert.ToDouble(sr.ReadLine());
+                A98 = Convert.ToDouble(sr.ReadLine());
+            }
+            bestOil = new(A95, A98);
+        }
+    }
+
+    class BestOil
+    {
+        public double A95 { get; set; }
+        public double A98 { get; set; }
+        public BestOil(double a95, double a98)
+        {
+            A95 = a95;
+            A98 = a98;
+        }
+
+        public double A95Sum(double litres)
+        {
+            return A95 * litres;
+        }
+
+        public double A98Sum(double litres)
+        {
+            return A98 * litres;
         }
     }
 }
