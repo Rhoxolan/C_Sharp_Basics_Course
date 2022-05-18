@@ -62,6 +62,44 @@ namespace program
 
         static void Task2()
         {
+            List<Good> goods1 = new()
+            {
+                new Good(1, "Nokia 1100", 450.99, "Mobile"),
+                new Good(2, "Iphone 4", 5000, "Mobile"),
+                new Good(3, "Refregirator 500", 2555, "Kitchen"),
+                new Good(4, "Mixer", 150, "Kitchen"),
+                new Good(5, "Magnitola", 1499, "Car"),
+            };
+            List<Good> goods2 = new()
+            {
+                new Good(6, "Samsung Galaxy", 3100, "Mobile"),
+                new Good(7, "Auto cleaner", 2300, "Car"),
+                new Good(8, "Owen", 700, "Kitchen"),
+                new Good(9, "Siemens Turbo", 3199, "Mobile"),
+                new Good(10, "Lighter", 150, "Car"),
+            };
+
+            var goods = goods1.Concat(goods2).ToList(); //Соединяем два Листа путем методов расширения Concat и ToList
+            foreach (Good good in goods)//Выводим на экран товары
+            {
+                Console.WriteLine(good);
+            }
+            Console.WriteLine("\n__________\n");
+            var newgoods = goods.Where(i => i.Price > 1000).ToList(); //Где цена больше 1000
+            foreach (Good good in newgoods)
+            {
+                Console.WriteLine(good);
+            }
+            Console.WriteLine("\n__________\n");
+            newgoods = goods.Where(i => i.Price > 1000 && i.Category != "Kitchen").ToList(); //Где цена больше 1000 и не "Kitchen"
+            foreach (Good good in newgoods)
+            {
+                Console.WriteLine(good);
+            }
+            Console.WriteLine("\n__________\n");
+            double max = goods.Max(a => a.Price); //Поиск максимума
+            var result = goods.FirstOrDefault(a => a.Price == max);
+            Console.WriteLine("Max = " + max.ToString());
             AnyKey();
         }
 
@@ -75,4 +113,6 @@ namespace program
             AnyKey();
         }
     }
+
+    public record Good (int Id, string Title, double Price, string Category);
 }
