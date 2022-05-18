@@ -85,6 +85,7 @@ namespace program
                 Console.WriteLine(good);
             }
             Console.WriteLine("\n__________\n");
+
             var newgoods = goods.Where(i => i.Price > 1000).ToList(); //Где цена больше 1000
             foreach (Good good in newgoods)
             {
@@ -97,9 +98,51 @@ namespace program
                 Console.WriteLine(good);
             }
             Console.WriteLine("\n__________\n");
-            double max = goods.Max(a => a.Price); //Поиск максимума
+
+            double max = goods.Max(a => a.Price); //Поиск максимума (Вариант 1)
             var result = goods.FirstOrDefault(a => a.Price == max);
             Console.WriteLine("Max = " + max.ToString());
+            Console.WriteLine("\n__________\n");
+
+            newgoods = goods.OrderBy(i => i.Price).ToList();  //Поиск максимума (Вариант 2)
+            max = newgoods[newgoods.Count - 1].Price;
+            Console.WriteLine("Max = " + max.ToString());
+            Console.WriteLine("\n__________\n");
+
+            double average = goods.Average(a => a.Price); //Среднее значение цен
+            Console.WriteLine("Average = " + average.ToString());
+            Console.WriteLine("\n__________\n");
+
+            List<string> categories = new(); //Выводим категории без повторений
+            foreach(Good good in goods)
+            {
+                categories.Add(good.Category);
+            }
+            categories = categories.Distinct().ToList();
+            foreach(string category in categories)
+            {
+                Console.Write(category + ' '.ToString());
+            }
+            Console.WriteLine("\n__________\n");
+
+            foreach(Good i in goods) //Вывести названия тех товаров, цены которых совпадают.
+            {
+                foreach(Good j in goods)
+                {
+                    if (i.Price == j.Price)
+                    {
+                        Console.WriteLine(j.Title + " " + j.Price);
+                    }
+                }
+                Console.WriteLine("\n");
+            }
+
+            var qwerty = goods.OrderBy(i => i.Title).ToList(); //Вывести названия и категории товаров в алфавитном порядке, упорядоченных по названию
+            foreach(var i in qwerty)
+            {
+                Console.Write(i.Title + " ");
+            }
+            Console.WriteLine("\n__________\n");
             AnyKey();
         }
 
