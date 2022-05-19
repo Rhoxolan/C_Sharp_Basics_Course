@@ -17,14 +17,10 @@ namespace program
             int choice;
             do
             {
-                Console.WriteLine("Пожалуйста, выберите задание (1 - 4)\n0 - Выход\n\n");
-                choice = NumberInput(0, 4);
+                Console.WriteLine("Пожалуйста, выберите задание (1 - 3)\n0 - Выход\n\n");
+                choice = NumberInput(0, 3);
                 Console.Clear();
-                if (choice > 3)
-                {
-                    Task4();
-                }
-                else if (choice > 2)
+                if (choice > 2)
                 {
                     Task3();
                 }
@@ -221,12 +217,26 @@ namespace program
                 Console.WriteLine(employee);
             }
             Console.WriteLine("\n__________\n");
-            //Ты тут. Сделать класс Департамент статическим
-            AnyKey();
-        }
 
-        static void Task4()
-        {
+            //2) Отсортировать сотрудников по возрастам, по убыванию.Вывести Id, FirstName, LastName, Age. Выполнить запрос немедленно.
+            var agelist = employees.OrderByDescending(e => e.Age).ToDictionary(e => e.GetHashCode()); //Для эксперемента преобразуем в Dictionary
+            foreach (var employee in agelist)
+            {
+                Console.WriteLine(employee);
+            }
+            Console.WriteLine("\n__________\n");
+
+            //3) Сгруппировать студентов по возрасту. Вывести возраст и сколько раз он встречается в списке.
+            var agelist2 = employees.GroupBy(e => e.Age).OrderBy(i => i.Key); //Дополнительно сортируем по возрасту
+            foreach (var age in agelist2)
+            {
+                Console.WriteLine(age.Key + ":");
+                foreach (var employee in age)
+                {
+                    Console.WriteLine(employee.ToString());
+                }
+                Console.WriteLine();
+            }
             AnyKey();
         }
     }
