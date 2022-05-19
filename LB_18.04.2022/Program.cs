@@ -86,13 +86,34 @@ namespace program
             }
             Console.WriteLine("\n__________\n");
 
-            var newgoods = goods.Where(i => i.Price > 1000).ToList(); //Где цена больше 1000
+            var newgoods = goods.Where(i => i.Price > 1000).ToList(); //Где цена больше 1000, вариант 1
             foreach (Good good in newgoods)
             {
                 Console.WriteLine(good);
             }
             Console.WriteLine("\n__________\n");
-            newgoods = goods.Where(i => i.Price > 1000 && i.Category != "Kitchen").ToList(); //Где цена больше 1000 и не "Kitchen"
+
+            var inewgoods = from g in goods  //Где цена больше 1000, вариант 2
+                            where g.Price > 1000
+                            select g;
+            newgoods = inewgoods.ToList();
+            foreach (Good good in newgoods)
+            {
+                Console.WriteLine(good);
+            }
+            Console.WriteLine("\n__________\n");
+
+            newgoods = goods.Where(i => i.Price > 1000 && i.Category != "Kitchen").ToList(); //Где цена больше 1000 и не "Kitchen" Вариант 1
+            foreach (Good good in newgoods)
+            {
+                Console.WriteLine(good);
+            }
+            Console.WriteLine("\n__________\n");
+
+            inewgoods = from g in goods //Где цена больше 1000 и не "Kitchen" Вариант 2
+                        where g.Price > 1000 & g.Category != "Kitchen"
+                        select g;
+            newgoods = inewgoods.ToList();
             foreach (Good good in newgoods)
             {
                 Console.WriteLine(good);
@@ -114,20 +135,20 @@ namespace program
             Console.WriteLine("\n__________\n");
 
             List<string> categories = new(); //Выводим категории без повторений
-            foreach(Good good in goods)
+            foreach (Good good in goods)
             {
                 categories.Add(good.Category);
             }
             categories = categories.Distinct().ToList();
-            foreach(string category in categories)
+            foreach (string category in categories)
             {
                 Console.Write(category + ' '.ToString());
             }
             Console.WriteLine("\n__________\n");
 
-            foreach(Good i in goods) //Вывести названия тех товаров, цены которых совпадают.
+            foreach (Good i in goods) //Вывести названия тех товаров, цены которых совпадают.
             {
-                foreach(Good j in goods)
+                foreach (Good j in goods)
                 {
                     if (i.Price == j.Price)
                     {
@@ -138,11 +159,25 @@ namespace program
             }
 
             var qwerty = goods.OrderBy(i => i.Title).ToList(); //Вывести названия и категории товаров в алфавитном порядке, упорядоченных по названию
-            foreach(var i in qwerty)
+            foreach (var i in qwerty)
             {
                 Console.Write(i.Title + " ");
             }
             Console.WriteLine("\n__________\n");
+
+            if(goods.Any(g => g.Price > 1000 && g.Price < 2000)) //Проверить, содержит ли категория Car товары, с ценой от 1000 до 2000 грн.
+            {
+                Console.WriteLine("\nСодержит категория Car товары с ценой от 1000 до 2000 грн.\n");
+            }
+            else
+            {
+                Console.WriteLine("\nНе содержит категория Car товары с ценой от 1000 до 2000 грн.\n");
+            }
+            Console.WriteLine("\n__________\n");
+
+            int CarNMobile = goods.Count(i => i.Category == "Car" || i.Category == "Mobile"); //Посчитать суммарное количество товаров категорий Сar и Mobile
+            Console.WriteLine("Товаров в категориях CarNMobile - " + CarNMobile);
+
             AnyKey();
         }
 
@@ -157,5 +192,5 @@ namespace program
         }
     }
 
-    public record Good (int Id, string Title, double Price, string Category);
+    public record Good(int Id, string Title, double Price, string Category);
 }
