@@ -177,6 +177,21 @@ namespace program
 
             int CarNMobile = goods.Count(i => i.Category == "Car" || i.Category == "Mobile"); //Посчитать суммарное количество товаров категорий Сar и Mobile
             Console.WriteLine("Товаров в категориях CarNMobile - " + CarNMobile);
+            Console.WriteLine("\n__________\n");
+
+            var cats = from g in goods //Вывести список категорий и количество товаров каждой категории
+                       group g by g.Category;
+            foreach(var cat in cats)
+            {
+                Console.WriteLine(cat.Key + ":");
+                foreach(var good in cat)
+                {
+                    Console.WriteLine(good.Title);
+                }
+                Console.WriteLine();
+            }
+
+            //Ты тут. Попробовать преобразовать что-либо в dictionary
 
             AnyKey();
         }
