@@ -165,7 +165,7 @@ namespace program
             }
             Console.WriteLine("\n__________\n");
 
-            if(goods.Any(g => g.Price > 1000 && g.Price < 2000)) //Проверить, содержит ли категория Car товары, с ценой от 1000 до 2000 грн.
+            if (goods.Any(g => g.Price > 1000 && g.Price < 2000)) //Проверить, содержит ли категория Car товары, с ценой от 1000 до 2000 грн.
             {
                 Console.WriteLine("\nСодержит категория Car товары с ценой от 1000 до 2000 грн.\n");
             }
@@ -181,23 +181,47 @@ namespace program
 
             var cats = from g in goods //Вывести список категорий и количество товаров каждой категории
                        group g by g.Category;
-            foreach(var cat in cats)
+            foreach (var cat in cats)
             {
                 Console.WriteLine(cat.Key + ":");
-                foreach(var good in cat)
+                foreach (var good in cat)
                 {
                     Console.WriteLine(good.Title);
                 }
                 Console.WriteLine();
             }
-
-            //Ты тут. Попробовать преобразовать что-либо в dictionary
-
+            Console.WriteLine("\n__________\n");
             AnyKey();
         }
 
         static void Task3()
         {
+            List<Department> departments = new List<Department>()
+            {
+                new Department(){ Id = 1, Country = "Ukraine", City = "Donetsk" },
+                new Department(){ Id = 2, Country = "Ukraine", City = "Kyiv" },
+                new Department(){ Id = 3, Country = "France", City = "Paris" },
+                new Department(){ Id = 4, Country = "Russia", City = "Moscow" }
+            };
+            List<Employee> employees = new List<Employee>()
+            {
+                new Employee() { Id = 1, FirstName = "Tamara", LastName = "Ivanova", Age = 22, DepId = 2 },
+                new Employee() { Id = 2, FirstName = "Nikita", LastName = "Larin", Age = 33, DepId = 1 },
+                new Employee() { Id = 3, FirstName = "Alica", LastName = "Ivanova", Age = 43, DepId = 3 },
+                new Employee() { Id = 4, FirstName = "Lida", LastName = "Marusyk", Age = 22, DepId = 2 },
+                new Employee() { Id = 5, FirstName = "Lida", LastName = "Voron", Age = 36, DepId = 4 },
+                new Employee() { Id = 6, FirstName = "Ivan", LastName = "Kalyta", Age = 22, DepId = 2 },
+                new Employee() { Id = 7, FirstName = "Nikita", LastName = "Krotov", Age = 27, DepId = 4 }
+            };
+
+            //1) Упорядочить имена и фамилии сотрудников по алфавиту, которые проживают в Украине.Выполнить запрос немедленно.
+            var namelist = employees.Where(e => e.DepId == 1 || e.DepId == 2).OrderBy(e => e.FirstName).OrderBy(e => e.LastName).ToList();
+            foreach(var employee in namelist)
+            {
+                Console.WriteLine(employee);
+            }
+            Console.WriteLine("\n__________\n");
+            //Ты тут. Сделать класс Департамент статическим
             AnyKey();
         }
 
@@ -208,4 +232,24 @@ namespace program
     }
 
     public record Good(int Id, string Title, double Price, string Category);
+
+    class Employee
+    {
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public int Age { get; set; }
+        public int DepId { get; set; }
+
+        public override string ToString()
+        {
+            return $"{FirstName} {LastName} {Id} {Age} {DepId}";
+        }
+    }
+    class Department
+    {
+        public int Id { get; set; }
+        public string Country { get; set; }
+        public string City { get; set; }
+    }
 }
